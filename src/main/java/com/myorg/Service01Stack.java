@@ -57,7 +57,7 @@ public class Service01Stack extends Stack {
                                 .build()
                 )
                 .desiredCount(1)
-                .listenerPort(8080)
+                .listenerPort(80)
                 .assignPublicIp(true)
                 .taskImageOptions(
                         ApplicationLoadBalancedTaskImageOptions.builder()
