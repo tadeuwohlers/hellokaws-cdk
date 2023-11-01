@@ -8,6 +8,9 @@ public class HellokawsCdkApp {
 
         VPCHellokawsStack vpcStack = new VPCHellokawsStack(app, "VPCHellokaws");
 
+        RDSStack rdsStack = new RDSStack(app, "RDSHellokaws", vpcStack.getVpc());
+        rdsStack.addDependency(vpcStack);
+
         ClusterHellokawsStack clusterStack = new ClusterHellokawsStack(app, "ClusterHellokaws", vpcStack.getVpc());
         clusterStack.addDependency(vpcStack);
 
@@ -18,3 +21,4 @@ public class HellokawsCdkApp {
     }
 }
 
+//cdk deploy --parameters RDSHellokaws:DatabasePassword=hi8dfFDSA$#! RDSHellokaws 
